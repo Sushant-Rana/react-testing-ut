@@ -11,9 +11,8 @@ describe('Tests for Todo App',()=>{
       expect(screen.getByText(/0/i)).toBeInTheDocument();
     })
     it('Add todo', () => {
-      let submittedTodo;
-      const handleSubmit=data=>(submittedTodo=data)
-      render(<App onSubmit={handleSubmit} />);
+      
+      render(<App />);
       const tesstId=screen.getByTestId('todoCount');
       const newTodo=screen.getByRole('textbox');
       userEvent.type(newTodo,"Task");
@@ -22,9 +21,7 @@ describe('Tests for Todo App',()=>{
       expect(tesstId).toHaveTextContent("1 todo")
     })
     it('delete Todo', () => {
-      let submittedTodo;
-      const handleSubmit=data=>(submittedTodo=data)
-      render(<App onSubmit={handleSubmit} />);
+      render(<App />);
       const tesstId=screen.getByTestId('todoCount');
       const newTodo=screen.getByPlaceholderText(/New Todo/i);
       userEvent.type(newTodo,"Task");
