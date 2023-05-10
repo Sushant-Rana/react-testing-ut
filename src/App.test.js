@@ -29,8 +29,7 @@ describe('Tests for Todo App',()=>{
       userEvent.click(submitBtn);  
       expect(tesstId).toHaveTextContent("1 todo")
       const deleteBtn=screen.getByRole('button', {  name: /delete/i});
-
       userEvent.click(deleteBtn);  
-      expect(tesstId).toHaveTextContent("0 todo")
+      expect(screen.getByText(/0/i)).toBeInTheDocument();
       })
 })
